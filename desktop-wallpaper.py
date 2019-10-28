@@ -12,7 +12,7 @@ vainishingPoint = [int(screenSize[0] / 2), int(screenSize[1] / 2)]
 def createBillboardImage(path) -> str:
 
     #fetch the global variables needed
-    global screenSize, vanishingPoint
+    global screenSize
 
     #convert the path variable to a string just in case something else is passed
     path = str(path)
@@ -63,7 +63,25 @@ def createBillboardImage(path) -> str:
     #return the path to the output file
     return path
 
-#create a list of images layer paths (bottom to top)
-imageLayers = [
-    createBillboardImage('./outputs/billboard.png')
-]
+#function to create the ground and road
+def createTerrainImage(path) -> str:
+
+    #fetch the global varilables eneded
+    global screenSize, vanishingPoint
+
+    #convert the path variable into a string just in case something else is passed
+    path = str(path)
+
+    #create the new image, drawing surface, and font(s)
+    image = PIL.Image.new('RGBA', screenSize, (0, 0, 0, 0))
+    draw = PIL.ImageDraw.Draw(image)
+    font = PIL.ImageFont.truetype('digital.ttf', int(screenSize[1] / 10))
+
+    #save the image
+    image.save(path)
+
+    #return the path to the output file
+    return path
+
+billboardImagePath = createBillboardImage()
+terrainImagePath = createTerrainImage()
