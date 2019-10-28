@@ -63,4 +63,7 @@ def createBillboardImage(path) -> str:
     #return the path to the output file
     return path
 
-createBillboardImage('./outputs/billboard.png')
+#create a list of images layer paths (bottom to top)
+imageLayers = [
+    createBillboardImage('./outputs/billboard.png')
+]
