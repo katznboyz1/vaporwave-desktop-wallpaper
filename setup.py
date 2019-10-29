@@ -4,7 +4,6 @@ import os, sys
 #list of the required modules to be installed via PIP
 requiredModules = [
     'pillow', #needed for image editing
-    'pygame', #needed for screen resolution sensing
 ]
 
 #install the required modules
